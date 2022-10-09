@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  #Create frontend container
+  client:
+    build: /client/vue-project
+    ports:
+      - 5173:5173
+    container_name: doraly-client
+    restart: always
+    links:
+      - server
+  # Create backend container
+  server:
+    build: /server
+    ports:
+      - 3333:3333
+    container_name: doraly-server
+    restart: always
